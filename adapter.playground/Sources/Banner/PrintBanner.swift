@@ -1,7 +1,7 @@
 import Foundation
 
-/// アダプタークラス
-class PrintBanner: Banner, Print {
+/// アダプタークラス 継承
+class PrintBannerInheritance: Banner, Print {
     func printWeak() {
         self.showWithParen()
     }

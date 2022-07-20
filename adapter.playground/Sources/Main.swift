@@ -4,7 +4,7 @@ import Foundation
 public class Main {
     public init() {
         let p: Print
-        p = PrintBanner("Hello")
+        p = PrintBannerInheritance("Hello")
         p.printWeak()
         p.printStrong()
     }
