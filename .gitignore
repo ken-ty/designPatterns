@@ -1,0 +1,4 @@
+# macOSがフォルダ情報を保存しておくための隠しファイル
+.DS_Store
+# Xcode内の現在の状態を示すファイル
+UserInterfaceState.xcuserstate
