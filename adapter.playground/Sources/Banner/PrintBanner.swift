@@ -10,3 +10,19 @@ class PrintBannerInheritance: Banner, PrintProtocol {
         self.showWithAster()
     }
 }
+
+/// アダプタークラス 移譲
+class PrintBannerDelegate: PrintClass {
+    private let banner: Banner
+    init(_ text: String) {
+        self.banner = Banner(text)
+    }
+    
+    override func printWeak() {
+        self.banner.showWithParen()
+    }
+    
+    override func printStrong() {
+        self.banner.showWithAster()
+    }
+}
