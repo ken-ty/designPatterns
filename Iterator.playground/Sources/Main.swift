@@ -18,7 +18,9 @@ public class Main {
         // イテレータ動作確認
         // 上記で追加したサンプルを1つずつスキャンして名前を取得する
         while samplesIterator.hasNext() {
-            guard let sample = samplesIterator.next() else { break }
+            guard let sample = samplesIterator.next() else {
+                fatalError("要素が取得できませんでした")
+            }
             print(sample.getName())
             sleep(1)
         }

@@ -2,8 +2,8 @@
 class SampleAggregate: IterableProtocol {
     /// 管理する要素群
     private var elements: [Element] = []
-    /// 末尾の要素
-    private var last: Element? = nil
+    /// 要素数
+    private var last = 0
     /// 指定したインデックスが有効か判定する
     private func validateIndex(index: Int) -> Bool {
         var isEnable = true
@@ -21,16 +21,16 @@ class SampleAggregate: IterableProtocol {
     /// 要素を集合に加える
     func append(_ element: Element) {
         self.elements.append(element)
-        self.last = element
+        self.last += 1
     }
     /// 末尾の要素を集合から削除する
     func deleteLast() {
         self.elements.removeLast()
-        self.last = self.elements[getLength()-1]
+        self.last -= 1
     }
     /// 集合体の長さを取得する
     func getLength() -> Int {
-        return self.elements.count
+        return self.last
     }
     
     // MARK: - Iterable に準拠する
