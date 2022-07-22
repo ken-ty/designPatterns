@@ -10,12 +10,7 @@ class IDCard: Product {
         self.serial = serial
         self.owner = owner
     }
-        
-    /// owner の getter
-    private func getOwner() -> String {
-        return self.owner
-    }
-
+    
     // MARK: - override method
     override func use() {
         print(self, "を使います.")
