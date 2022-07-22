@@ -14,6 +14,11 @@ public class Main {
             print("s と v は同じインスタンスではありません")
         }
         
+        let tMaker = TicketMaker.getInstance()
+        let uMaker = TicketMaker.getInstance()
+        print(tMaker.getNextTicketNumber())
+        print(uMaker.getNextTicketNumber())
+
         print("end")
     }
 }
