@@ -4,6 +4,12 @@ import Foundation
 public class Main {
     public init() {
         // ここに処理を記述する
+        // singletonTest()
+        ticketMakerTest()
+    }
+    
+    // シングルトンの動作テスト
+    func singletonTest() {
         print("start")
         
         let s = Singleton.getInstance()
@@ -14,11 +20,15 @@ public class Main {
             print("s と v は同じインスタンスではありません")
         }
         
+        print("end")
+    }
+    
+    // TicketMaker の動作テスト
+    func ticketMakerTest() {
         let tMaker = TicketMaker.getInstance()
         let uMaker = TicketMaker.getInstance()
         print(tMaker.getNextTicketNumber())
         print(uMaker.getNextTicketNumber())
 
-        print("end")
     }
 }
