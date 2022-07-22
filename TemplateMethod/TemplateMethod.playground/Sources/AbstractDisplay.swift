@@ -17,8 +17,8 @@ class AbstractDisplay {
         fatalError("具象クラスで実装して下さい")
     }
     
-    /// 表示する. 具体的な表示方法は具象クラスで決める.
-    func display() {
+    /// 表示する.
+    final func display() {
         open()
         for _ in 0..<5 {
             print()
