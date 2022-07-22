@@ -18,3 +18,10 @@ class IDCard: Product {
         print(self, "を使います.")
     }
 }
+
+// self が print された時の表示を変更する
+extension IDCard: CustomStringConvertible {
+    var description: String {
+        return "[IDCard: \(self.owner)]"
+    }
+}
