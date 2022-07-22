@@ -19,5 +19,6 @@ class CharDisplay : AbstractDisplay {
     
     override func close() {
         Swift.print(">>", terminator: "")
+        Swift.print()
     }
 }
