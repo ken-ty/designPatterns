@@ -2,12 +2,15 @@ import Foundation
 
 /// メソッド use() を実装してるクラス
 class IDCard: Product {
+    /// 初期化時に カードのオーナーをsetする
     private let owner: String
-    init(owner: String) {
-        print(owner, "のカードを作ります.")
+    private let serial: Int
+    init(serial: Int, owner: String) {
+        print(owner, "のカードを", serial, "番で作ります.")
+        self.serial = serial
         self.owner = owner
     }
-    
+        
     /// owner の getter
     private func getOwner() -> String {
         return self.owner
