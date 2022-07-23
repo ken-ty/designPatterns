@@ -1,0 +1,29 @@
+@startuml
+
+title Template Method パターン
+
+'クラスとコメント
+abstract class AbstractClass {
+    {abstract} # method1()
+    {abstract} # method2()
+    {abstract} # method3()
+    + templateMethod()
+}
+note right of AbstractClass
+    テンプレートメソッドを実装する.
+    テンプレートメソッドの使用する抽象メソッドを宣言する.
+end note
+
+class ConcreteClass {
+    # method1()
+    # method2()
+    # method3()
+}
+note right of ConcreteClass
+    抽象メソッドを具体的に実装する.
+end note
+
+'関係
+AbstractClass <|-- ConcreteClass
+
+@enduml
