@@ -1,0 +1,22 @@
+@startuml
+
+'クラス定義
+
+' インスタンスをコピーして新しいインスタンスを作るためのメソッドを定める.
+abstract class Prototype {
+    {abstract} + createCopy()
+}
+
+' Prototype を実際に実装する.
+class ConcretePrototype {
+    + createCopy()
+}
+' インスタンスをコピーするメソッドを利用して, 新しいインスタンスを作る.
+class Client {}
+
+'関係
+Prototype <|-- ConcretePrototype
+Client -> Prototype : Uses >
+
+
+@enduml
