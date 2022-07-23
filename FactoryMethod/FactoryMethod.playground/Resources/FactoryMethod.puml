@@ -1,0 +1,55 @@
+@startuml
+
+title Factory Method パターン
+
+'フレームワーク
+package framework {
+    abstract class Creator {
+        create()
+        {abstract} factoryMethod()
+    }
+    note top of Creator
+        Product を生成する抽象クラス.
+        具体的な内容はサブクラスが定める.
+        factoryMethod()を呼び出せば
+        Product が生成されることしか知らない.
+    end note
+
+    abstract class Product {
+        {abstract} method1()
+        {abstract} method2()
+        {abstract} method3()
+    }
+    note top of Product
+        Factory Method パターンを
+        使用して生成されるインスタンスが
+        持つべきインターフェースを定める抽象クラス.
+    end note
+}
+
+'具体的な肉付け
+package idcard {
+    class ConcreteCreator {
+        factoryMethod()
+    }
+    note bottom of ConcreteCreator
+        factoryMethod()の具体的な実装をする.
+    end note
+
+    class ConcreteProduct {
+        method1()
+        method2()
+        method3()
+    }
+    note bottom of ConcreteProduct
+        必要なインスタンスの具体的な実装をする.
+    end note
+}
+
+Creator -> Product: Creates >
+Product <|-- ConcreteProduct
+Creator <|-- ConcreteCreator
+ConcreteCreator -> ConcreteProduct: Creates >
+
+
+@enduml
