@@ -1,5 +1,5 @@
 /// サンプルの集合体を表すクラス
-class SampleAggregate: IterableProtocol {
+class SampleAggregate: AggregateProtocol {
     /// 管理する要素群
     private var elements: [Element] = []
     /// 要素数
@@ -33,7 +33,7 @@ class SampleAggregate: IterableProtocol {
         return self.last
     }
     
-    // MARK: - Iterable に準拠する
+    // MARK: - Aggregate に準拠する
     typealias Element = Sample
     typealias Iterator = SampleAggregateIterator
     

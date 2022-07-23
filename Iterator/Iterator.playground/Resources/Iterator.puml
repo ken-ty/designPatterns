@@ -12,11 +12,10 @@ note top of Iterator
     インターフェースを定める.
 end note
 
-interface Iterable {
+interface Aggregate {
     {abstract} iterator(): Iterator
 }
-note top of Iterable
-    Aggregate と読んだ方がいいかも.
+note top of Aggregate
     Iteratorを作り出す
     インターフェースを定める.
 end note
@@ -25,7 +24,7 @@ class SampleAggregate {
     + iterator() : SampleAggregateIterator
 }
 note bottom of SampleAggregate
-    Iterable を実際に実装するクラス.
+    Aggregate を実際に実装するクラス.
     SampleAggregateIterator を作り出す.
 end note
 
@@ -40,8 +39,8 @@ note bottom of SampleAggregateIterator
 end note
 
 '関係
-Iterable -> Iterator : Create >
-Iterable <|.. SampleAggregate
+Aggregate -> Iterator : Create >
+Aggregate <|.. SampleAggregate
 Iterator <|.. SampleAggregateIterator
 SampleAggregate -o SampleAggregateIterator
 
