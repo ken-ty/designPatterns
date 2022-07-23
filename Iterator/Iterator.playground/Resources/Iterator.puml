@@ -1,0 +1,48 @@
+@startuml
+
+title Iterator パターン
+
+'クラスとコメント
+interface Iterator {
+    {abstract} hasNext()
+    {abstract} next()
+}
+note top of Iterator
+    要素を順番にスキャンしていく
+    インターフェースを定める.
+end note
+
+interface Iterable {
+    {abstract} iterator(): Iterator
+}
+note top of Iterable
+    Aggregate と読んだ方がいいかも.
+    Iteratorを作り出す
+    インターフェースを定める.
+end note
+
+class SampleAggregate {
+    + iterator() : SampleAggregateIterator
+}
+note bottom of SampleAggregate
+    Iterable を実際に実装するクラス.
+    SampleAggregateIterator を作り出す.
+end note
+
+class SampleAggregateIterator {
+    hasNext()
+    next()
+}
+note bottom of SampleAggregateIterator
+    Iterator を実際に実装するクラス.
+    スキャンする為に必要な情報
+    (要素の集合, 注目する要素の場所)をもつ.
+end note
+
+'関係
+Iterable -> Iterator : Create >
+Iterable <|.. SampleAggregate
+Iterator <|.. SampleAggregateIterator
+SampleAggregate -o SampleAggregateIterator
+
+@enduml
