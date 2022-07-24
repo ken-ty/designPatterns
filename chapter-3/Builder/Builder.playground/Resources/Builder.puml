@@ -1,6 +1,59 @@
 @startuml
 
 title Builder パターン
-' ここにクラス図を作成する
+
+' クラスとコメント
+abstract class Builder {
+    {abstract} makeTitle()
+    {abstract} makeString()
+    {abstract} makeItems()
+    {abstract} close()
+}
+note top of Builder
+    文書を構成するための
+    メソッドを定めた抽象クラス
+end note
+class Director {
+    builder
+    construct()
+}
+note top of Director
+    1つの文書を作るクラス
+end note
+class TextBuilder {
+    sb
+    makeTitle()
+    makeString()
+    makeItems()
+    close()
+    getTextResult()
+}
+note bottom of TextBuilder
+    テキストを使って
+    文書を作るクラス
+end note
+class HTMLBuilder {
+    makeTitle()
+    makeString()
+    makeItems()
+    close()
+    getHTMLResult()
+}
+note bottom of HTMLBuilder
+    HTMLファイルを使って
+    文書を作るクラス
+end note
+class Main {}
+note bottom of Main
+    動作確認用のクラス
+end note
+
+' 関係性
+Main -> Director : Uses >
+Director o- Builder
+Builder <|-- TextBuilder
+Builder <|-- HTMLBuilder
+Main -> TextBuilder : Uses >
+Main -> HTMLBuilder : Uses >
 
 @enduml
