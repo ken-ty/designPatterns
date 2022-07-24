@@ -4,27 +4,28 @@ import Foundation
 public class Main {
     public init() {
         let command = "text" // change "text" or "html" or "usage"
+        let story = AllowStory.momotaro
         if command == "text" {
-            text()
+            text(story: story)
         } else if command == "html" {
-            html()
+            html(story: story)
         } else {
             usage()
         }
     }
     
-    func text() {
+    func text(story: AllowStory) {
         let builder = TextBuilder()
         let director = Director(builder: builder)
-        director.construct()
+        director.construct(story: story)
         let result = builder.getTextResult()
         print(result)
     }
     
-    func html() {
+    func html(story: AllowStory) {
         let builder = HTMLBuilder()
         let director = Director(builder: builder)
-        director.construct()
+        director.construct(story: story)
         let result = builder.getHTMLResult()
         print("ファイル:", result, "を作成しました")
     }
